@@ -1,39 +1,38 @@
 # shop-schedule
 
 #### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+shop-schedule是海量数据高并发场景，构建Go+ES8企业级搜索微服务课程商城系统的调度服务，
 
-#### 软件架构
-软件架构说明
+[课程地址 **点此 打开**](https://coding.imooc.com/class/579.html?mc_marking=bb86c9071ed9b7cf12612a2a85203372)
+
+项目基于golang开发，主要用于商城的一些脚本和调度服务
+
+#### 软件技术栈
+Go + mongo+Elasticsearch
 
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1、安装go>=1.15,这个可以https://studygolang.com/dl下载
+
+2、开启mod： go env -w GO111MODULE=on
+
+3、配置代理：go env -w GOPROXY=https://goproxy.cn,direct 这个让下载依赖速度更快
+
+5、配置私有仓库：go env -w  GOPRIVATE=*gitee.com
+
+6、下载项目：git clone https://gitee.com/phper95/shop-main.git
+
+7、go mod tidy 安装所需依赖
+
+8、导入sql/shop.sql,修改cconfig,yml 里数据库与redis配置
+
+9、本地运行go run main.go
+
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+1.  config/config.yml下配置mongo等组件的连接地址
+2.  编译运行项目
 
 
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)

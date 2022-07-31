@@ -32,7 +32,7 @@ func AnalysisSearchLog() {
 		} else {
 			global.LOG.Warnf("table %s ; count %d", table, count)
 		}
-		global.Mongo.FindUseCursor(global.ProductSearchLogDbName, table, 1000, bson.D{}, Searchlog{}, cursorCallback)
+		global.Mongo.FindUseCursor(global.ProductSearchLogDbName, table, 1000, bson.D{}, &Searchlog{}, cursorCallback)
 	}
 
 	global.LOG.Warnf("AnalysisSearchLog finished , productSearchedUserCount %+v", productSearchedUserCount)
@@ -40,9 +40,12 @@ func AnalysisSearchLog() {
 
 func getTables() (tables []string) {
 	days := 10
-	for i := 1; i <= days; i++ {
+	for i := 0; i < days; i++ {
 		t := time.Now().AddDate(0, 0, -i)
-		tables = append(tables, fmt.Sprintf(global.ProductSearchLogCollectionNamePrefix, timeutil.YMDLayoutString(t)))
+		//if i > 0 {
+		//	t = t.AddDate(0, 0, -i)
+		//}
+		tables = append(tables, fmt.Sprintf(global.ProductSearchLogCollectionNamePrefix, timeutil.YMDLayoutInt64(t)))
 	}
 	global.LOG.Warn("getTables", tables)
 	return tables
@@ -50,7 +53,10 @@ func getTables() (tables []string) {
 
 func cursorCallback(res interface{}, err error) {
 	if err != nil {
-		log := res.(Searchlog)
+		global.LOG.Error("cursorCallback error", err, res)
+		return
+	} else {
+		log := res.(*Searchlog)
 		global.LOG.Warn(log)
 		productSearchedUserCount[log.UserID] += 1
 	}
