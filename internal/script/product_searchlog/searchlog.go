@@ -58,6 +58,7 @@ func cursorCallback(res interface{}, err error) {
 	} else {
 		log := res.(*Searchlog)
 		global.LOG.Warn(log)
+		// cursor有超时时间，这里不宜做耗时操作
 		productSearchedUserCount[log.UserID] += 1
 	}
 }
