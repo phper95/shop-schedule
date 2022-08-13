@@ -9,6 +9,7 @@ type Config struct {
 	Redis         Redis         `mapstructure:"redis" yaml:"redis"`
 	Elasticsearch Elasticsearch `mapstructure:"elasticsearch" yaml:"elasticsearch"`
 	Zap           Zap           `mapstructure:"zap" yaml:"zap"`
+	Api           Api           `mapstructure:"api" yaml:"api"`
 }
 
 type App struct {
@@ -54,4 +55,10 @@ type MongoDB struct {
 	User     string   `mapstructure:"user"`
 	Password string   `mapstructure:"password"`
 	Host     []string `mapstructure:"host"`
+}
+
+type Api struct {
+	OrderAK  string `mapstructure:"order-ak" yaml:"order-ak"`
+	OrderSK  string `mapstructure:"order-sk" yaml:"order-sk"`
+	ShopHost string `mapstructure:"shop-host" yaml:"shop-host"`
 }

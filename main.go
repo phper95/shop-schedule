@@ -12,6 +12,7 @@ import (
 	"go.uber.org/zap"
 	"shop-schedule/config"
 	"shop-schedule/global"
+	"shop-schedule/internal/script/order_rebuild"
 	"shop-schedule/internal/script/product_searchlog"
 )
 
@@ -73,6 +74,9 @@ func main() {
 	switch global.CONFIG.App.Task {
 	case "product-search-log":
 		product_searchlog.AnalysisSearchLog()
+	case "order-rebuild":
+		order_rebuild.Rebuild("3")
+
 	}
 
 	//优雅关闭

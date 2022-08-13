@@ -6,7 +6,7 @@ app:
   log_save_path: 'logs/'
   log_save_name: 'log'
   log_file_ext: 'log'
-  task: 'product-search-log'
+  task: 'order-rebuild'
 
 database:
   type: 'mysql'
@@ -37,3 +37,8 @@ zap:
   log-info-filename: 'info'
   log-warn-filename: 'warn'
   log-fiile-ext: 'log'
+
+api:
+  order-ak: 'AK20220808327988'
+  order-sk: 'xOBYfykyFVixXFziF8XN5F9crzpC0XrW'
+  shop-host: 'http://127.0.0.1:8000'
