@@ -75,7 +75,7 @@ func main() {
 	case "product-search-log":
 		product_searchlog.AnalysisSearchLog()
 	case "order-rebuild":
-		order_rebuild.Rebuild("3")
+		order_rebuild.Rebuild("4")
 
 	}
 

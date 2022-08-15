@@ -34,10 +34,10 @@ type CursorResultList struct {
 func Rebuild(userID string) {
 	t := time.Now()
 	orderSuffixLen := 4
+	nextID := "0"
 	for {
 		global.LOG.Warn("start rebuild")
 		params := url.Values{}
-		nextID := "0"
 		params.Add("next_id", nextID)
 		uri := GetOrdersUri + "/" + userID
 		authorization, date, err := sign.New(global.CONFIG.Api.OrderAK,
@@ -92,6 +92,8 @@ func Rebuild(userID string) {
 		}
 		if res.Data.NextID == 0 {
 			break
+		} else {
+			nextID = strutil.Int64ToString(res.Data.NextID)
 		}
 
 	}
